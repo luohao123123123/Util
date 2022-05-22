@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class KafkaUtil {
     //获取包含Kafka连接参数的ProducerProperties
-    public Properties getProducerProperties(){
+    public static Properties getProducerProperties(){
         Properties props = new Properties();
         // 连接Kafka集群broker-list
         props.put("bootstrap.servers", "master:9092,slave1:9092,slave2:9092");
@@ -28,7 +28,7 @@ public class KafkaUtil {
     }
 
     //获取包含Kafka连接参数的ConsumerProperties
-    public Properties getConsumerProperties(){
+    public static Properties getConsumerProperties(){
         Properties props = new Properties();
         // 定义kakfa 服务的地址，不需要将所有broker指定上
         props.put("bootstrap.servers", "master:9092,slave1:9092,slave2:9092");
@@ -51,12 +51,12 @@ public class KafkaUtil {
 
     //TODO:消费者
     //获取KafkaConsumer<String, String>，可自定义包含Kafka参数的Properties
-    public KafkaConsumer<String, String> getConsumer(Properties props){
+    public static KafkaConsumer<String, String> getConsumer(Properties props){
         return new KafkaConsumer<> (props);
     }
 
     //获取KafkaConsumer<String, String>
-    public KafkaConsumer<String, String> getConsumer(){
+    public static KafkaConsumer<String, String> getConsumer(){
         Properties props = getConsumerProperties();
         return new KafkaConsumer<> (props);
     }
@@ -64,16 +64,16 @@ public class KafkaUtil {
     //TODO:生产者
 
     //获取KafkaProducer<String, String>,可自定义包含Kafka参数的Properties
-    public KafkaProducer<String, String> getProducer(Properties props){
+    public static  KafkaProducer<String, String> getProducer(Properties props){
         return new KafkaProducer<>(props);
     }
-    public KafkaProducer<String, String> getProducer(){
+    public static KafkaProducer<String, String> getProducer(){
         Properties props = getProducerProperties();
         return new KafkaProducer<>(props);
     }
     
     //TODO:Streaming-Kafka
-    public Map<String,Object> getStreaming_KafkaConsumer(){
+    public static Map<String,Object> getStreaming_KafkaConsumer(){
         java.util.Map<String,Object> map=new HashMap();
         // 定义kakfa 服务的地址，不需要将所有broker指定上
         map.put("bootstrap.servers","master:9092,slave1:9092,slave2:9092");
