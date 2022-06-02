@@ -231,9 +231,13 @@ public class FilesUtil extends FileUtils {
             if (UserAgent.contains("firefox")) {
                 return "FF";
             }
+            if (UserAgent.contains("chrome")) {
+                return "Chrome";
+            }
             if (UserAgent.contains("safari")) {
                 return "SF";
             }
+
         }
         return null;
     }
